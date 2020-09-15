@@ -1,0 +1,8 @@
+parsedatetime
+matplotlib
+discord.py
+colorlog
+tabulate
+jishaku
+asyncpg
+black
