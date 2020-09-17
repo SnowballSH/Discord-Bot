@@ -4,21 +4,21 @@ from discord.ext.commands import check
 
 def is_admin(member: Member):
     for role in member.roles:
-        if role.id in (511334601977888798, 580911082290282506, 537990081156481025):
+        if role.id in (739207116711133245, 580911082290282506, 537990081156481025):
             return True
     return False
 
 
 def is_mod(member: Member):
     for role in member.roles:
-        if role.id in (511332506780434438, 541272748161499147):
+        if role.id in (739207116711133245, 739207116711133245):
             return True
     return is_admin(member)
 
 
 def is_engineer(member: Member):
     for role in member.roles:
-        if role.id == 611734695587086370:
+        if role.id == 739207116711133245:
             return True
     return is_mod(member)
 
@@ -37,5 +37,5 @@ def is_engineer_check():
 
 def in_twt():
     def predicate(ctx):
-        return ctx.guild.id == 501090983539245061
+        return ctx.guild.id == 739205949134471238
     return check(predicate)

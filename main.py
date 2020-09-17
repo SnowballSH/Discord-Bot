@@ -14,7 +14,6 @@ from cogs.utils.DataBase import DataBase, Message, User
 
 from config import TOKEN, POSTGRES
 
-
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 os.environ["JISHAKU_HIDE"] = "True"
@@ -22,7 +21,7 @@ os.environ["JISHAKU_HIDE"] = "True"
 initial_cogs = [
     'jishaku',
     'cogs.commands',
-    'cogs.filtering',
+    # 'cogs.filtering',
     'cogs._help',
     'cogs.tags',
     'cogs.challenges',
@@ -52,8 +51,8 @@ class Tim(commands.AutoShardedBot):
 
     async def on_ready(self):
         print(f'Successfully logged in as {self.user}\nSharded to {len(self.guilds)} guilds')
-        self.guild = self.get_guild(501090983539245061)
-        self.welcomes = self.guild.get_channel(511344843247845377)
+        self.guild = self.get_guild(739205949134471238)
+        self.welcomes = self.guild.get_channel(739205949134471241)
         await self.change_presence(activity=discord.Game(name='use the prefix "tim."'))
 
         for ext in initial_cogs:
@@ -62,7 +61,7 @@ class Tim(commands.AutoShardedBot):
 
     async def on_member_join(self, member):
         await self.wait_until_ready()
-        if member.guild.id == 501090983539245061:
+        if member.guild.id == 739205949134471238:
             await self.welcomes.send(f"Welcome to the Tech With Tim Community {member.mention}!\n"
                                      f"Members += 1\nCurrent # of members: {self.guild.member_count}")
 
@@ -90,7 +89,7 @@ class Tim(commands.AutoShardedBot):
 
         if ctx.command.name in ('help', 'scoreboard', 'rep_scoreboard', 'reps', 'member_count', 'top_user', 'users',
                                 'server_messages', 'messages'):
-            if ctx.channel.id not in (511344208955703306, 536199577284509696):
+            if ctx.channel.id not in (739208082638241806,):
                 return await message.channel.send("**Please use #bot-commands channel**")
 
         try:
